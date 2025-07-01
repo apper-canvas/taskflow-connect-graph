@@ -72,12 +72,13 @@ const ListView = () => {
 
     // Apply sorting
     filtered.sort((a, b) => {
-      switch (sortBy) {
+switch (sortBy) {
         case 'dueDate':
           return new Date(a.dueDate) - new Date(b.dueDate);
-        case 'priority':
+        case 'priority': {
           const priorityOrder = { 'High': 3, 'Medium': 2, 'Low': 1 };
           return priorityOrder[b.priority] - priorityOrder[a.priority];
+        }
         case 'createdAt':
           return new Date(b.createdAt) - new Date(a.createdAt);
         case 'title':
